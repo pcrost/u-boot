@@ -209,6 +209,7 @@
 /* Default environment */
 #define CONFIG_EXTRA_ENV_SETTINGS	\
 	"fit_image=fit.itb\0"		\
+	"boot_script=uEnv.txt\0"	\
 	"load_addr=0x2000000\0"		\
 	"fit_size=0x800000\0"		\
 	"flash_off=0x100000\0"		\
@@ -219,8 +220,9 @@
 		"cp.b ${nor_flash_off} ${load_addr} ${fit_size} && " \
 		"bootm ${load_addr}\0" \
 	"sdboot=echo Copying FIT from SD to RAM... && " \
-		"load mmc 0 ${load_addr} ${fit_image} && " \
-		"bootm ${load_addr}\0" \
+		"load mmc 0 ${load_addr} ${boot_script} && " \
+		"env import -t $load_addr $filesize && " \
+		"run bootuenv\0" \
 	"jtagboot=echo TFTPing FIT to RAM... && " \
 		"tftpboot ${load_addr} ${fit_image} && " \
 		"bootm ${load_addr}\0" \
