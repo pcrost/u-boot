@@ -281,6 +281,7 @@
 
 /* FIT support */
 #define CONFIG_IMAGE_FORMAT_LEGACY /* enable also legacy image format */
+#define CONFIG_SUPPORT_RAW_INITRD
 
 /* FDT support */
 #define CONFIG_DISPLAY_BOARDINFO_LATE
