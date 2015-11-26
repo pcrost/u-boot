@@ -249,6 +249,8 @@
 #define CONFIG_SYS_PBSIZE		(CONFIG_SYS_CBSIZE + \
 					sizeof(CONFIG_SYS_PROMPT) + 16)
 
+#define CONFIG_CMD_BOOTZ
+
 /* Physical Memory map */
 #define CONFIG_SYS_TEXT_BASE		0x4000000
 
